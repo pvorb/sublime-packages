@@ -1,0 +1,77 @@
+{ "name": "Bison",
+    "scopeName": "source.bison",
+    
+    "fileTypes": ["yy", "y", "ypp", "yxx", "y++", "bison", "BISON"],
+    
+    "patterns":
+    [
+        {   "match": "%[a-zA-Z\\-]+",
+            "name": "keyword.source.bison"
+        },
+        {   "match": "[0-9]+",
+            "name": "comment.numeric.bison"
+        },
+        {   "match": "\\$(\\$|[0-9]+)",
+            "captures": {
+                "0": {
+                    "name": "variable.expression.bison"
+                }
+            }
+        },
+        {   "match": "@(\\$|[0-9]+)",
+            "captures": {
+                "0": {
+                    "name": "variable.location.bison"
+                }
+            }
+        },
+        {   "name": "string.quoted.double.bison",
+            "begin": "\"",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.definition.string.begin.bison"
+                }
+            },
+            "end": "\"",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.definition.string.end.bison"
+                }
+            },
+            "patterns": [
+                {
+                    "match": "\\\\.",
+                    "name": "constant.character.escape.bison"
+                }
+            ]
+        },
+        {   "name": "comment.multiline.bison",
+            "begin": "/\\*",
+            "beginCaptures": {
+                "0": {
+                    "name": "comment.multiline.begin.bison"
+                }
+            },
+            "end": "\\*/",
+            "endCaptures": {
+                "0": {
+                    "name": "comment.multiline.end.bison"
+                }
+            },
+            "patterns": [
+                {
+                    "match": "\\\\.",
+                    "name": "constant.character.escape.bison"
+                }
+            ]
+        },
+
+        {   "match": "'.'",
+            "name": "string.bison"
+        },
+        {   "match": "//.*",
+            "name": "comment.source.bison"
+        }
+    ],
+    "uuid": "768701bf-57a5-462e-a0bd-be4bfb786126"
+}
